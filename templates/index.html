@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Image Editing App</title>
+</head>
+
+<body>
+    <h1>Image Editing Application</h1>
+    <p></p>
+    <br>
+
+    <form action="/edit" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload the Image to Edit : </label>
+            <input class="form-control" type="file" name="file" id="formFile">
+
+            <div class="mb-3">
+                <p></p>
+                <br>
+                <div class="form-floating">
+                    <label for="floatingSelect">Select an Image Editing Operation: </label>
+                    <select name="operation" class="form-select" id="floatingSelect"
+                        aria-label="Floating label select example">
+                        <option selected>Choose an Editing Operation</option>
+                        <option value="cpng">Convert to PNG</option>
+                        <option value="cgray">Convert to Gray Scale</option>
+                        <option value="cwebp">Convert to Webp</option>
+                        <option value="cjpg">Convert to JPG</option>
+                        
+
+                    </select>
+                </div>
+                <p></p>
+                <br>
+                <div class="btn1">
+                    <input type="submit" id="btn" value="submit">
+                </div>
+            </div>
+    </form>
+    <p></p>
+    <br>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <strong id="success" class="{{ category }}">{{ message | safe}}</strong>
+    {% endfor %}
+
+    {% endif %}
+    {% endwith %}
+
+</body>
+
+</html>

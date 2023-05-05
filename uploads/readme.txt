@@ -1,0 +1,1 @@
+This Application will converts the images into the various formats such as JPG, PNG, Webp and in GrayScalw
